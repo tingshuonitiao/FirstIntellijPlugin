@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.11'
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+intellij {
+    version '2017.3.5'
+    pluginName 'FirstIntellijPlugin'
+    intellij.updateSinceUntilBuild false
+}
+
+group 'com.example.tsnt'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+allprojects {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}

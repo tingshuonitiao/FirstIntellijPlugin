@@ -1,0 +1,39 @@
+<idea-plugin>
+    <id>com.example.tsnt.FirstIntellijPlugin</id>
+    <name>FirstIntellijPlugin</name>
+    <vendor email="kobe.xiaozong.zhang@gmail.com" url="https://github.com/tingshuonitiao">tingshuonitiao</vendor>
+
+    <description>FirstIntellijPlugin</description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="123"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <actions>
+        <group id="FirstIntellijPlugin.SampleMenu" text="Sample Menu" description="Sample menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="FirstIntellijPlugin.TextBoxes" class="com.example.tsnt.action.TextBoxes" text="TextBoxes"
+                    description="A test menu item"/>
+            <action id="FirstIntellijPlugin.HelloAction" class="com.example.tsnt.action.HelloAction" text="HelloAction"
+                    description="HelloAction!"/>
+        </group>
+
+        <group>
+            <action id="FirstIntellijPlugin.GenerateMenu" class="com.example.tsnt.action.CreateActivityAction"
+                    text="Create Activity"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
+        </group>
+    </actions>
+</idea-plugin>
