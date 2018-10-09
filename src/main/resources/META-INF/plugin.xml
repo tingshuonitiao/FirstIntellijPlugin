@@ -24,14 +24,14 @@
     <actions>
         <group id="FirstIntellijPlugin.SampleMenu" text="Sample Menu" description="Sample menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="FirstIntellijPlugin.TextBoxes" class="com.example.tsnt.action.TextBoxes" text="TextBoxes"
+            <action id="FirstIntellijPlugin.TextBoxes" class="com.example.tsnt.sample.TextBoxes" text="TextBoxes"
                     description="A test menu item"/>
-            <action id="FirstIntellijPlugin.HelloAction" class="com.example.tsnt.action.HelloAction" text="HelloAction"
+            <action id="FirstIntellijPlugin.HelloAction" class="com.example.tsnt.sample.HelloAction" text="HelloAction"
                     description="HelloAction!"/>
         </group>
 
         <group>
-            <action id="FirstIntellijPlugin.GenerateMenu" class="com.example.tsnt.action.CreateActivityAction"
+            <action id="FirstIntellijPlugin.GenerateMenu" class="com.example.tsnt.create_activity.action.CreateActivityAction"
                     text="Create Activity"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
         </group>

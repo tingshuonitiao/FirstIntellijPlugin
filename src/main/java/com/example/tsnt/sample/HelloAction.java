@@ -1,4 +1,4 @@
-package com.example.tsnt.action;
+package com.example.tsnt.sample;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;

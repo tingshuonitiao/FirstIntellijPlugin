@@ -1,4 +1,4 @@
-package com.example.tsnt.ui;
+package com.example.tsnt.create_activity.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ public class CreateActivityDialog extends JFrame {
 
     private OnConfirmClickListener onConfirmClickListener;
 
-    private CreateActivityDialog() throws HeadlessException {
+    private CreateActivityDialog() {
 
     }
 
@@ -42,15 +42,15 @@ public class CreateActivityDialog extends JFrame {
         panel.setLayout(null);
 
         // JLabel类似Android的TextView
-        JLabel userLabel = new JLabel("ActivityName:");
+        JLabel activityLabel = new JLabel("ActivityName:");
         // 这个方法定义了组件的位置
-        userLabel.setBounds(10, 20, 110, 25);
-        panel.add(userLabel);
+        activityLabel.setBounds(10, 20, 110, 25);
+        panel.add(activityLabel);
 
         // JTextField类似Android的EditText
-        JTextField userText = new JTextField(20);
-        userText.setBounds(110, 20, 165, 25);
-        panel.add(userText);
+        JTextField activityText = new JTextField(20);
+        activityText.setBounds(110, 20, 165, 25);
+        panel.add(activityText);
 
         // 创建按钮, 类似Android的Button
         JButton createButton = new JButton("create Activity");
@@ -61,7 +61,7 @@ public class CreateActivityDialog extends JFrame {
                 // 界面消失, 释放JFrame资源
                 dispose();
                 if (onConfirmClickListener != null) {
-                    onConfirmClickListener.onConfirm();
+                    onConfirmClickListener.onConfirm(activityText.getText());
                 }
             }
         });
@@ -92,6 +92,6 @@ public class CreateActivityDialog extends JFrame {
     }
 
     public interface OnConfirmClickListener {
-        void onConfirm();
+        void onConfirm(String activityName);
     }
 }
