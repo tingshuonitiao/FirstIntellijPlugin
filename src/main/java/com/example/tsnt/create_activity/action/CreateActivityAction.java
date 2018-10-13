@@ -8,6 +8,7 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.vfs.VirtualFile;
+import org.apache.http.util.TextUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -22,6 +23,11 @@ public class CreateActivityAction extends AnAction {
         showInputText(event);
     }
 
+    /**
+     * 展示输入Activity名字的文本框
+     *
+     * @param event
+     */
     private void showInputText(AnActionEvent event) {
         new CreateActivityDialog.Builder()
                 .setOnConfirmClickListener(new CreateActivityDialog.OnConfirmClickListener() {
@@ -41,6 +47,9 @@ public class CreateActivityAction extends AnAction {
      * @param activityName
      */
     private void createActivity(AnActionEvent event, String activityName) {
+        if (TextUtils.isEmpty(activityName)) {
+            return;
+        }
         VirtualFile file = event.getData(PlatformDataKeys.VIRTUAL_FILE);
         // 生成layout文件
         String layoutName = generateLayout(file, activityName);
@@ -78,6 +87,7 @@ public class CreateActivityAction extends AnAction {
                     ".xml";
             File layoutFile = new File(layoutPath);
             if (!layoutFile.exists()) {
+                // 如果layout文件不存在, 去创建
                 try {
                     layoutFile.createNewFile();
                     writeFile(layoutPath, generateXmlContent());
@@ -86,6 +96,7 @@ public class CreateActivityAction extends AnAction {
                 }
                 break;
             } else {
+                // 如果layout文件存在, 修改文件名
                 layoutName += "_1";
             }
         }

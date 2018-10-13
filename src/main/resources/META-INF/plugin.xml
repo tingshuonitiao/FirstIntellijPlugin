@@ -22,6 +22,11 @@
     <depends>com.intellij.modules.lang</depends>
 
     <actions>
+        <!--意思是我要在主菜单栏添加一个叫Sample Menu的按钮-->
+        <!--位置位于主菜单栏的最后-->
+        <!--点击Sample Menu之后会展开一个子菜单-->
+        <!--子菜单有两个按钮-->
+        <!--TextBoxes和HelloAction-->
         <group id="FirstIntellijPlugin.SampleMenu" text="Sample Menu" description="Sample menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="FirstIntellijPlugin.TextBoxes" class="com.example.tsnt.sample.TextBoxes" text="TextBoxes"
